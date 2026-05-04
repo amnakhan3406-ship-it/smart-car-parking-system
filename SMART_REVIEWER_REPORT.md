@@ -3,6 +3,7 @@
 AI has successfully analyzed this repository and applied context-aware fixes.
 
 ### Fixes Attempted:
-- **smart_car_parking.ino**: Hardcoded Wi-Fi credentials pose a security risk. Move credentials to a separate configuration file or use a manager like WiFiManager to avoid exposing sensitive data in source control.
-- **smart_car_parking.ino**: Repetitive conditional logic for sensor checking increases technical debt. Use an array and a loop to handle multiple parking slots dynamically, making the code easier to scale.
-- **smart_car_parking.ino**: Replace 'Magic Numbers' for pin assignments with named constants to improve readability and prevent hardware mapping errors.
+- **parking_system.ino**: Hardcoded sensitive credentials (WiFi SSID/Password and Firebase Secret) are stored in plain text. This is a critical security risk.
+- **parking_system.ino**: Redundant use of global variables for pin assignments without 'const' qualifiers, leading to potential accidental runtime modification and higher memory usage.
+- **parking_system.ino**: Blocking code using delay() prevents the system from responding to sensor inputs or network requests in real-time.
+- **firebase_handler.cpp**: Lack of error handling for network requests. If Firebase is unreachable, the system may hang or return garbage values for slot availability.
