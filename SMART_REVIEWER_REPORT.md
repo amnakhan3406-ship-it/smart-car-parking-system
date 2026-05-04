@@ -3,7 +3,6 @@
 AI has successfully analyzed this repository and applied context-aware fixes.
 
 ### Fixes Attempted:
-- **Hardware/Arduino_Code.ino**: Hardcoded sensitive WiFi credentials in source code. This poses a significant security risk if the repository is public.
-- **Web/db_config.php**: Plaintext database credentials and lack of environment variable usage for sensitive configuration.
-- **Web/update_status.php**: Potential SQL injection vulnerability due to direct concatenation of GET/POST variables into SQL queries.
-- **Web/index.php**: Lack of Cross-Site Request Forgery (CSRF) protection on state-changing actions.
+- **smart_car_parking.ino**: Hardcoded Wi-Fi credentials pose a security risk. Move credentials to a separate configuration file or use a manager like WiFiManager to avoid exposing sensitive data in source control.
+- **smart_car_parking.ino**: Repetitive conditional logic for sensor checking increases technical debt. Use an array and a loop to handle multiple parking slots dynamically, making the code easier to scale.
+- **smart_car_parking.ino**: Replace 'Magic Numbers' for pin assignments with named constants to improve readability and prevent hardware mapping errors.
