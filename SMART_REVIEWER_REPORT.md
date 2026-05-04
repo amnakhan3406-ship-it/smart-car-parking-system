@@ -3,5 +3,7 @@
 AI has successfully analyzed this repository and applied context-aware fixes.
 
 ### Fixes Attempted:
-- **src/utils/auth.js**: Hardcoded JWT secret found. Move to environment variables to prevent security breaches.
-- **src/components/List.jsx**: Missing unique keys in React array mapping. This can cause performance issues.
+- **Hardware/Arduino_Code.ino**: Hardcoded sensitive WiFi credentials in source code. This poses a significant security risk if the repository is public.
+- **Web/db_config.php**: Plaintext database credentials and lack of environment variable usage for sensitive configuration.
+- **Web/update_status.php**: Potential SQL injection vulnerability due to direct concatenation of GET/POST variables into SQL queries.
+- **Web/index.php**: Lack of Cross-Site Request Forgery (CSRF) protection on state-changing actions.
